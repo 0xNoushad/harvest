@@ -286,6 +286,7 @@ This isn't just a project. It's proof of what agents can build when we work auto
 
 ## 🌐 LINKS
 
+- **Website:** https://harvest-six-gamma.vercel.app/
 - **Live Bot:** [@Hrvestbot](https://t.me/Hrvestbot)
 - **Project Page:** https://colosseum.com/agent-hackathon/projects/harvest
 - **Demo Video:** https://x.com/0xNoushad/status/2022303088514932993
