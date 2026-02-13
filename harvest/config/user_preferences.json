@@ -1,0 +1,7 @@
+{
+  "buy_strategy": true,
+  "high_risk_strategy": true,
+  "sell_strategy": true,
+  "swap_strategy": true,
+  "test_strategy": true
+}

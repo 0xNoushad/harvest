@@ -1,0 +1,142 @@
+---
+import Title from '~/components/Title.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+---
+
+<Layout title="Privacy Policy - Harvest" description="How Harvest handles your data">
+  <main class="mx-auto mt-52 w-1/2 pb-24">
+    <Title id="privacy-policy" class="xl:text-6xl">Privacy Policy</Title>
+    <div class="ml-4 font-bold">Last Updated: February 2026</div>
+
+    <Title class="mt-16 text-4xl font-bold" id="introduction">
+      Introduction
+    </Title>
+    <p>
+      Harvest is an autonomous yield farming protocol on Solana. This policy explains how we handle your data.
+    </p>
+    <div class="mx-12 my-12 flex gap-4 font-bold">
+      We don't collect or sell your personal data. Your wallet, your keys, your control.
+    </div>
+
+    <Title class="mt-16 text-4xl font-bold" id="1-information-we-do-not-collect">
+      1. Information We Do Not Collect
+    </Title>
+    <p>
+      Harvest does not collect any personal information, browsing data, or wallet activity beyond what's publicly visible on the Solana blockchain.
+    </p>
+
+    <h3 class="mt-4 text-xl font-bold">
+      <strong class="font-bold">1.1 No Personal Data Collection</strong>
+    </h3>
+    <p>
+      We do not collect names, email addresses, IP addresses, or any other personally identifiable information.
+    </p>
+
+    <h3 class="mt-4 text-xl font-bold">
+      <strong class="font-bold">1.2 No Tracking</strong>
+    </h3>
+    <p>
+      We do not use analytics, advertising networks, or tracking services on our website or protocol.
+    </p>
+
+    <Title class="mt-16 text-4xl font-bold" id="2-blockchain-data">
+      2. Blockchain Data
+    </Title>
+    <p>
+      All transactions on Harvest are recorded on the Solana blockchain, which is public and immutable. This includes:
+    </p>
+    <ul>
+      <li><strong class="font-bold">Deposits and Withdrawals:</strong> Your wallet address and transaction amounts are visible on-chain</li>
+      <li><strong class="font-bold">Agent Actions:</strong> Trades and strategy executions performed by our agents are recorded on-chain</li>
+      <li><strong class="font-bold">Smart Contract Interactions:</strong> All protocol interactions are publicly verifiable</li>
+    </ul>
+    <p class="mt-4">
+      This is inherent to blockchain technology and not controlled by Harvest.
+    </p>
+
+    <Title class="mt-16 text-4xl font-bold" id="3-wallet-connection">
+      3. Wallet Connection
+    </Title>
+    <p>
+      When you connect your wallet to Harvest:
+    </p>
+    <ul>
+      <li>Your wallet address is used only to interact with our smart contracts</li>
+      <li>We do not store your private keys or seed phrases</li>
+      <li>You maintain full custody of your assets at all times</li>
+      <li>You can disconnect your wallet at any time</li>
+    </ul>
+
+    <Title class="mt-16 text-4xl font-bold" id="4-agent-operations">
+      4. Agent Operations
+    </Title>
+    <p>
+      Our AI agents operate autonomously to optimize your yield:
+    </p>
+    <ul>
+      <li>Agents analyze public market data and DeFi protocols</li>
+      <li>All agent decisions are executed on-chain and publicly visible</li>
+      <li>You can monitor agent activity through your wallet and blockchain explorers</li>
+      <li>Agents do not access any personal information</li>
+    </ul>
+
+    <Title class="mt-16 text-4xl font-bold" id="5-security">
+      5. Security
+    </Title>
+    <p>
+      We take security seriously:
+    </p>
+    <ul>
+      <li>Our smart contracts are audited by reputable security firms</li>
+      <li>We use industry-standard security practices</li>
+      <li>You maintain full control of your assets through your wallet</li>
+      <li>We recommend using hardware wallets for large deposits</li>
+    </ul>
+
+    <Title class="mt-16 text-4xl font-bold" id="6-third-party-services">
+      6. Third-Party Services
+    </Title>
+    <p>
+      Harvest interacts with various DeFi protocols on Solana. Each protocol has its own terms and risks. We recommend reviewing the documentation of any protocol your funds are deployed to.
+    </p>
+
+    <Title class="mt-16 text-4xl font-bold" id="7-website">
+      7. Our Website
+    </Title>
+    <p>
+      This website does not use cookies, analytics, or tracking. We may use basic server logs for security and performance monitoring.
+    </p>
+
+    <Title class="mt-16 text-4xl font-bold" id="8-changes">
+      8. Changes to This Policy
+    </Title>
+    <p>
+      We may update this privacy policy from time to time. Changes will be posted on this page with an updated date.
+    </p>
+
+    <Title class="mt-16 text-4xl font-bold" id="9-contact">
+      9. Contact Us
+    </Title>
+    <p>
+      If you have questions about this privacy policy, reach us on X at @harvest_bot.
+    </p>
+  </main>
+</Layout>
+<style>
+  p,
+  li {
+    @apply opacity-55;
+  }
+
+  ul {
+    @apply mt-4;
+  }
+
+  li {
+    @apply ml-4 list-disc;
+  }
+</style>

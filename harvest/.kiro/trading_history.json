@@ -1,0 +1,41 @@
+{
+  "trades": [
+    {
+      "strategy_name": "test_strategy",
+      "timestamp": "2026-02-13T21:33:50.404198",
+      "expected_profit": 0.1,
+      "actual_profit": 0.0,
+      "transaction_hash": "N/A",
+      "was_successful": false,
+      "error_message": "Failed to load wallet: Wallet not found for user user1",
+      "gas_fees": 0.0,
+      "execution_time_ms": 3,
+      "user_id": null
+    },
+    {
+      "strategy_name": "test_strategy",
+      "timestamp": "2026-02-13T21:34:03.573828",
+      "expected_profit": 0.1,
+      "actual_profit": 0.0,
+      "transaction_hash": "N/A",
+      "was_successful": false,
+      "error_message": "Failed to load wallet: Wallet not found for user user1",
+      "gas_fees": 0.0,
+      "execution_time_ms": 0,
+      "user_id": null
+    },
+    {
+      "strategy_name": "test_strategy",
+      "timestamp": "2026-02-13T21:57:31.551726",
+      "expected_profit": 0.1,
+      "actual_profit": 0.0,
+      "transaction_hash": "N/A",
+      "was_successful": false,
+      "error_message": "Failed to load wallet: Wallet not found for user user1",
+      "gas_fees": 0.0,
+      "execution_time_ms": 0,
+      "user_id": null
+    }
+  ],
+  "last_updated": "2026-02-13T21:57:31.551737"
+}

@@ -1,0 +1,76 @@
+services:
+  # Worker 1 - Handles 50 users (FREE)
+  - type: web
+    name: harvest-worker-1
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerCommand: python -m agent.distributed.worker
+    healthCheckPath: /health
+    envVars:
+      - key: WORKER_ID
+        value: worker_1
+      - key: REDIS_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SCAN_INTERVAL
+        value: 900
+      - key: PRICE_CACHE_TTL
+        value: 600
+      - key: STRATEGY_CACHE_TTL
+        value: 300
+      - key: SOLANA_NETWORK
+        value: mainnet-beta
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: HELIUS_API_KEY_1
+        sync: false
+      - key: HELIUS_API_KEY_2
+        sync: false
+      - key: HELIUS_API_KEY_3
+        sync: false
+      - key: HELIUS_API_KEY_4
+        sync: false
+      - key: HELIUS_API_KEY_5
+        sync: false
+
+  # Worker 2 - Handles 50 users (FREE)
+  - type: web
+    name: harvest-worker-2
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerCommand: python -m agent.distributed.worker
+    healthCheckPath: /health
+    envVars:
+      - key: WORKER_ID
+        value: worker_2
+      - key: REDIS_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SCAN_INTERVAL
+        value: 900
+      - key: PRICE_CACHE_TTL
+        value: 600
+      - key: STRATEGY_CACHE_TTL
+        value: 300
+      - key: SOLANA_NETWORK
+        value: mainnet-beta
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: HELIUS_API_KEY_6
+        sync: false
+      - key: HELIUS_API_KEY_7
+        sync: false
+      - key: HELIUS_API_KEY_8
+        sync: false
+      - key: HELIUS_API_KEY_9
+        sync: false
+      - key: HELIUS_API_KEY_10
+        sync: false

@@ -1,0 +1,292 @@
+---
+import { getLocale, getUI } from '~/utils/i18n'
+import Description from './Description.astro'
+import { Image } from 'astro:assets'
+import nftImage from '~/assets/nft.png'
+import airdropImage from '~/assets/airdrop.png'
+import stakeImage from '~/assets/stake.png'
+import farmImage from '~/assets/farm.png'
+
+const locale = getLocale(Astro)
+
+const {
+  routes: {
+    index: { features },
+  },
+} = getUI(locale)
+
+interface Props {
+  titles?: string[]
+}
+
+const { titles } = Astro.props
+const descriptions = Object.values(features.featureTabs).map((tab: unknown) => (tab as { description: string }).description)
+---
+
+<section id="features" class="relative flex w-full scroll-mt-20 flex-col py-12 text-start lg:py-36">
+  <Description class="mb-2 text-4xl font-bold sm:text-6xl">
+    {
+      (titles || features.titles).map((title, index) =>
+        title !== '\n' ? (
+          <span class="title-line opacity-0" data-index={index}>
+            {title}
+          </span>
+        ) : (
+          <br class="hidden md:block" />
+        )
+      )
+    }
+  </Description>
+
+  <p class="feature-description-text opacity-0 lg:w-1/2">
+    {features.description}
+  </p>
+
+  <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-2">
+    <div class="flex w-full flex-col lg:w-1/3">
+      <div class="flex gap-2 overflow-x-auto overflow-y-clip lg:hidden">
+        {
+          Object.entries(features.featureTabs).map(([key, tab]: [string, unknown], i) => (
+            <button
+              class="feature-tab whitespace-nowrap opacity-0"
+              data-index={i}
+              data-feature-key={key}
+              data-active={i === 0 ? 'true' : undefined}
+            >
+              {(tab as { title: string }).title}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Desktop features list -->
+      <div id="features-list" class="hidden lg:flex lg:flex-col lg:gap-3">
+        {
+          Object.entries(features.featureTabs).map(([key, tab]: [string, unknown], i) => {
+            const tabData = tab as { title: string; description: string }
+            return (
+              <div
+                class="feature opacity-0"
+                data-index={i}
+                data-feature-key={key}
+                data-active={i === 0 ? 'true' : undefined}
+              >
+                <Description class="text-2xl font-bold">{tabData.title}</Description>
+                <Description>{tabData.description}</Description>
+              </div>
+            )
+          })
+        }
+      </div>
+
+      <!-- Mobile description -->
+      <div class="feature-description mt-4 lg:hidden" data-descriptions={descriptions.join('|||')}>
+      </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="sticky top-6 h-fit w-full lg:w-3/5">
+      <div class="relative w-full">
+        <div class="image-stack relative h-full w-full">
+          <Image
+            src={nftImage}
+            alt="NFT Flipper"
+            class="feature-image"
+            data-feature-key="workspaces"
+          />
+          <Image
+            src={airdropImage}
+            alt="Airdrop Hunter"
+            class="feature-image"
+            data-feature-key="compactMode"
+          />
+          <Image
+            src={stakeImage}
+            alt="Liquid Staking"
+            class="feature-image"
+            data-feature-key="glance"
+          />
+          <Image
+            src={farmImage}
+            alt="Kamino Vaults"
+            class="feature-image"
+            data-feature-key="splitView"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { animate, stagger } from 'animejs'
+
+  // Animate Titles
+  animate('.title-line', {
+    opacity: [0, 1],
+    delay: stagger(200, { start: 200 }),
+    duration: 600,
+    easing: 'easeOutQuad',
+  })
+
+  animate('.feature-description-text', {
+    opacity: [0, 1],
+    delay: 600,
+    duration: 600,
+    easing: 'easeOutQuad',
+  })
+
+  animate('.feature-tab, .feature', {
+    opacity: [0, 1],
+    delay: stagger(200, { start: 800 }),
+    duration: 500,
+    easing: 'easeOutQuad',
+  })
+
+  const features = document.querySelectorAll('.feature, .feature-tab') as NodeListOf<HTMLElement>
+  const descriptionEl = document.querySelector('.feature-description') as HTMLDivElement | null
+  const descriptions = descriptionEl?.dataset.descriptions?.split('|||')
+  const images = document.querySelectorAll('.feature-image') as NodeListOf<HTMLImageElement>
+
+  function changeToFeature({ target }: { target: HTMLElement }) {
+    const targetEl = target?.closest('.feature, .feature-tab') as HTMLElement | null
+    if (!targetEl) return
+
+    const index = parseInt(targetEl.dataset.index as string, 10)
+    if (isNaN(index)) return
+
+    const featureKey = targetEl.dataset.featureKey as string
+    if (!featureKey) return
+
+    // Toggle active states
+    features.forEach((el) => {
+      if (el.dataset.featureKey === featureKey) {
+        el.setAttribute('data-active', 'true')
+      } else {
+        el.removeAttribute('data-active')
+      }
+    })
+
+    // Update mobile description
+    if (descriptionEl && descriptions) {
+      descriptionEl.textContent = descriptions[index]
+    }
+
+    // Animate images
+    images.forEach((img) => {
+      const imgFeatureKey = img.dataset.featureKey as string
+
+      if (imgFeatureKey === featureKey) {
+        img.setAttribute('data-active', 'true')
+        img.style.opacity = '1'
+        img.style.top = '65%'
+        img.style.transform = `translate(-50%, -50%) scale(1)`
+        img.style.zIndex = '10'
+      } else {
+        img.removeAttribute('data-active')
+        img.style.opacity = '0'
+        img.style.top = '65%'
+        img.style.transform = `translate(-50%, -50%) scale(0.95)`
+        img.style.zIndex = '1'
+      }
+    })
+  }
+
+  // Set up event listeners
+  features.forEach(f => f.addEventListener('click', changeToFeature as unknown as EventListener))
+
+  // Initialize first feature
+  const firstFeature = features[0]
+  if (firstFeature) {
+    changeToFeature({ target: firstFeature })
+  }
+</script>
+<style>
+  .feature {
+    @apply w-full cursor-pointer select-none rounded-lg p-4 opacity-0 hover:bg-subtle;
+    transition: background 0.2s ease-in-out;
+
+    &[data-active='true'] {
+      @apply bg-subtle;
+    }
+  }
+
+  .feature-tab {
+    @apply rounded-lg px-4 py-2 text-lg font-medium opacity-0 hover:bg-subtle;
+    transition: background 0.2s ease-in-out;
+
+    &[data-active='true'] {
+      @apply bg-subtle;
+    }
+  }
+
+  .feature-description {
+    @apply px-4 text-sm;
+  }
+
+  .image-stack {
+    @apply aspect-video;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-image {
+    @apply rounded-3xl shadow-md dark:opacity-80;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .feature-image[data-active='true'] {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 10;
+  }
+
+  /* Don't animate translation on small screens */
+  @media (max-width: 1024px) {
+    .feature-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      opacity: 0;
+      transform: none !important;
+      display: none;
+      object-fit: contain;
+      padding: 1rem;
+
+      &[data-active='true'] {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    .image-stack {
+      @apply overflow-hidden rounded-xl;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: transparent;
+    }
+  }
+</style>

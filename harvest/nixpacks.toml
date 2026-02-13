@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python39", "pip"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["mkdir -p logs config data"]
+
+[start]
+cmd = "python -m harvest.agent.main"

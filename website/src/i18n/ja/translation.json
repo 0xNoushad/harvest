@@ -1,0 +1,130 @@
+{
+  "routes": {
+    "index": {
+      "title": "Harvest",
+      "hero": {
+        "title": [
+          { "text": "自律型 ", "highlight": false },
+          { "text": "イールド ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "ファーミング ", "highlight": false },
+          { "text": "on ", "highlight": true },
+          { "text": "Solana", "highlight": false }
+        ],
+        "description": [
+          "Solana上の自律型イールドファーミング。",
+          "資産を預けるだけで、AIエージェントが24時間365日リターンを最大化します。"
+        ],
+        "buttons": {
+          "beta": "ベータ版が公開されました！"
+        }
+      },
+      "features": {
+        "titles": ["自律型 ", "イールド ", "ファーミング"],
+        "description": "HarvestはAIエージェントを活用し、Solana上のDeFi利回りを自動で最適化します。資産を預けるだけで、最適なプロトコルを横断しながら24時間稼働でリターンを最大化します。",
+        "featureTabs": {
+          "workspaces": {
+            "title": "自動戦略",
+            "description": "AIエージェントが市場状況を継続的に監視し、SolanaのDeFiプロトコル全体で最適なイールドファーミング戦略を自動実行します。"
+          },
+          "compactMode": {
+            "title": "リアルタイム最適化",
+            "description": "エージェントがリアルタイムで機会を分析し、リスクを管理しながら最高利回りを得るためにポートフォリオを再調整します。"
+          },
+          "glance": {
+            "title": "マルチプロトコル対応",
+            "description": "複数のDeFiプロトコルから同時に利回りへアクセス。AIエージェントがSolanaエコシステム全体から最適な機会を発見・実行します。"
+          },
+          "splitView": {
+            "title": "完全な透明性",
+            "description": "すべてのエージェントの行動はオンチェーンに記録されます。利回りやパフォーマンスを追跡し、ウォレットを通じてすべての取引を検証できます。"
+          }
+        }
+      },
+      "community": {
+        "title": ["なぜ ", "Harvest"],
+        "description": "Harvestは最先端のAIとSolanaの高速性を融合し、透明性・効率性・誰でも使える自律型イールドファーミングを実現します。",
+        "lists": {
+          "freeAndOpenSource": {
+            "title": "自律型 & 高効率",
+            "description": "AIエージェントが24時間稼働し、複数プロトコルを横断して利回りを最適化。手動管理は不要です。"
+          },
+          "simpleYetPowerful": {
+            "title": "オンチェーンの透明性",
+            "description": "すべてのアクションはSolanaブロックチェーン上に記録されます。利回りを追跡し、取引を検証し、資産の完全な管理権を保持できます。"
+          },
+          "privateAndAlwaysUpToDate": {
+            "title": "マルチプロトコルアクセス",
+            "description": "SolanaのDeFiエコシステム全体から最高の利回りにアクセス。AIエージェントが常に最適な機会を発見・実行します。"
+          }
+        },
+        "images": {
+          "community": {
+            "alt": "Harvest ダッシュボード"
+          }
+        }
+      }
+    },
+    "about": {
+      "title": "Harvestについて",
+      "description": "HarvestはSolana上の自律型イールドファーミングプロトコルです。AIエージェントがDeFiの機会を継続的に監視し、戦略を最適化、取引を実行して、あなたが眠っている間もリターンを最大化します。"
+    },
+    "welcome": {
+      "title": ["ようこそ ", "Harvest"]
+    },
+    "mods": {
+      "slug": {
+        "back": "戻る"
+      }
+    },
+    "notFound": {
+      "title": "ページが見つかりません",
+      "description": "お探しのページは存在しないか、移動された可能性があります。",
+      "button": "ホームへ戻る"
+    }
+  },
+  "layout": {
+    "index": {
+      "title": "Harvest",
+      "description": "Solana上の自律型イールドファーミング。資産を預けるだけで、AIエージェントが24時間リターンを最大化します。"
+    },
+    "about": {
+      "title": "Harvestについて",
+      "description": "HarvestはSolana上の自律型イールドファーミングプロトコルです。AIエージェントが24時間稼働し、最適なプロトコルを横断してDeFiリターンを最大化します。"
+    },
+    "welcome": {
+      "title": "Harvestへようこそ",
+      "description": "Solana上の自律型イールドファーミングを始めましょう。"
+    }
+  },
+  "components": {
+    "footer": {
+      "title": "Harvest",
+      "description": "Solana上の自律型イールドファーミング。資産を預けるだけで、AIエージェントが24時間リターンを最適化します。",
+      "followUs": "フォローする",
+      "aboutUs": "Harvestについて",
+      "getStarted": "始める",
+      "documentation": "ドキュメント",
+      "discord": "Discord",
+      "mods": "Mods",
+      "releaseNotes": "リリースノート",
+      "madeWith": "Harvestチームが <span aria-label='love'>❤️</span> を込めて開発しました"
+    },
+    "nav": {
+      "brand": "Harvest",
+      "menu": {
+        "gettingStarted": "はじめに",
+        "usefulLinks": "便利なリンク",
+        "discord": "Discord",
+        "documentation": "ドキュメント",
+        "documentationDesc": "Harvestの使い方をドキュメントで学びましょう。",
+        "github": "GitHub",
+        "githubDesc": "GitHubでHarvestの開発に参加してください。",
+        "menu": "メニュー",
+        "mods": "Mods",
+        "releaseNotes": "リリースノート",
+        "aboutUs": "Harvestについて"
+      }
+    }
+  }
+}

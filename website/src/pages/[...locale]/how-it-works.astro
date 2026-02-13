@@ -1,0 +1,58 @@
+---
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+
+const { layout } = getUI(locale)
+---
+
+<Layout title="How It Works" description="Learn how Harvest automates your crypto earnings on Solana">
+  <main class="container flex min-h-screen w-full flex-col gap-24 py-24">
+    <div class="flex w-full flex-col gap-6">
+      <Description class="text-6xl font-bold leading-none">How It Works</Description>
+      <Description class="max-w-4xl">
+        Harvest is your 24/7 automated trading bot on Solana. Connect your wallet, and our bot starts hunting opportunities across the entire Solana ecosystem.
+      </Description>
+    </div>
+
+    <div class="flex w-full flex-col gap-12">
+      <div class="flex flex-col gap-4">
+        <Description class="text-3xl font-bold">1. Connect Your Wallet</Description>
+        <Description class="max-w-4xl">
+          Start by connecting your Solana wallet through our Telegram bot. Your keys stay with you - we never have access to your funds.
+        </Description>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <Description class="text-3xl font-bold">2. Choose Your Strategies</Description>
+        <Description class="max-w-4xl">
+          Pick from multiple automated strategies: Airdrop Hunter finds and claims new airdrops, NFT Flipper spots undervalued NFTs on Magic Eden, Yield Farmer optimizes returns across DeFi protocols, and Liquid Staking maximizes staking rewards.
+        </Description>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <Description class="text-3xl font-bold">3. Bot Works 24/7</Description>
+        <Description class="max-w-4xl">
+          Once activated, the bot monitors markets continuously, executes trades automatically, and sends you notifications on every action. No manual intervention needed.
+        </Description>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <Description class="text-3xl font-bold">4. Track Your Earnings</Description>
+        <Description class="max-w-4xl">
+          Get real-time updates via Telegram. See your portfolio grow, track performance metrics, and adjust strategies anytime.
+        </Description>
+      </div>
+    </div>
+
+    <div class="flex w-full flex-col gap-6">
+      <Description class="text-4xl font-bold">Ready to Start?</Description>
+      <Description class="max-w-4xl">
+        Join thousands earning passive income on Solana. <a href="https://t.me/Hrvestbot" target="_blank" rel="noopener noreferrer" class="text-coral underline">Start the bot on Telegram</a> and let your money work for you.
+      </Description>
+    </div>
+  </main>
+</Layout>

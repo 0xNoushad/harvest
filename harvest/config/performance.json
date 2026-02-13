@@ -1,0 +1,469 @@
+{
+  "trades": [
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T07:47:57.296010",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T07:47:57.296914",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T07:47:57.297302",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T07:51:05.456701",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T07:51:05.458604",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T07:51:05.459385",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T07:53:00.670739",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T07:53:00.671162",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T07:53:00.671325",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T07:54:31.041980",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T07:54:31.042563",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T07:54:31.043115",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T07:57:33.213566",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T07:57:33.214555",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T07:57:33.215116",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T07:59:08.114210",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T07:59:08.115414",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T07:59:08.116370",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T08:06:44.977666",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T08:06:44.980506",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T08:06:44.982124",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T08:08:47.091058",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T08:08:47.093697",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T08:08:47.094882",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T08:11:04.829712",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T08:11:04.831163",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T08:11:04.832183",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T08:12:38.163100",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T08:12:38.164931",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T08:12:38.166102",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "nft_flipper",
+      "timestamp": "2026-02-12T08:13:44.837243",
+      "action": "flip",
+      "amount": 0.7,
+      "profit": 0.078,
+      "transaction_hash": "mock_tx_1"
+    },
+    {
+      "strategy_name": "liquid_staking",
+      "timestamp": "2026-02-12T08:13:44.838801",
+      "action": "stake",
+      "amount": 1.0,
+      "profit": 0.072,
+      "transaction_hash": "mock_tx_2"
+    },
+    {
+      "strategy_name": "yield_farmer",
+      "timestamp": "2026-02-12T08:13:44.840933",
+      "action": "deposit",
+      "amount": 10.0,
+      "profit": 0.15,
+      "transaction_hash": "mock_tx_3"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:37:35.733717",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:37:35.737737",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:37:35.748584",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:37:35.752230",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:37:35.753365",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:37:35.753926",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "high_risk_strategy",
+      "timestamp": "2026-02-12T19:37:35.787345",
+      "action": "buy",
+      "amount": 100.0,
+      "profit": 50.0,
+      "transaction_hash": "should_not_execute"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:39:31.508351",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:39:31.512957",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:39:31.522552",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:39:31.525364",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:39:31.525760",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:39:31.526108",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:40:31.335413",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:40:31.338203",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:40:31.348106",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:40:31.350814",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:40:31.351247",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:40:31.351608",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:41:02.115030",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:41:02.117836",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:41:02.128541",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:41:02.167011",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:41:02.167644",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:41:02.168109",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    }
+  ],
+  "last_updated": "2026-02-12T19:41:02.168143"
+}

@@ -1,0 +1,34 @@
+---
+// Telegram Bot QR Code Component
+const botUsername = "Hrvestbot"; // Your actual bot username
+const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://t.me/${botUsername}`;
+---
+
+<div class="relative flex flex-col items-center gap-6 rounded-2xl bg-subtle/30 p-12">
+  <!-- Dotted Grid Background -->
+  <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl opacity-40">
+    <div class="dot-grid h-full w-full"></div>
+  </div>
+
+  <div class="rounded-2xl bg-white p-4">
+    <img
+      src={qrCodeUrl}
+      alt="Scan to start Harvest Bot on Telegram"
+      class="h-64 w-64"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="text-center">
+    <p class="text-lg font-bold">Scan to Start Bot</p>
+    <p class="text-sm opacity-80">Or search <span class="font-mono text-coral">@{botUsername}</span> on Telegram</p>
+  </div>
+</div>
+
+<style>
+  .dot-grid {
+    background-image: radial-gradient(circle, currentColor 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    @apply text-gray-200 dark:text-gray-800;
+  }
+</style>

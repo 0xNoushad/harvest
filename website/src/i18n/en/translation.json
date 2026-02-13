@@ -1,0 +1,137 @@
+{
+  "routes": {
+    "index": {
+      "title": "Harvest",
+      "hero": {
+        "title": [
+          { "text": "Autonomous ", "highlight": false },
+          { "text": "yield ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "farming ", "highlight": false },
+          { "text": "on ", "highlight": true },
+          { "text": "Solana", "highlight": false }
+        ],
+        "description": [
+          "Autonomous yield farming on Solana.",
+          "Deposit assets, let AI agents maximize your returns 24/7."
+        ],
+        "buttons": {
+          "beta": "Beta is now available!"
+        }
+      },
+      "features": {
+        "titles": ["Autonomous ", "Agents ", "on Solana"],
+        "description": "Harvest uses AI agents to automatically hunt opportunities on Solana. Connect your wallet and let our agents work 24/7 to find NFT flips, airdrops, liquid staking, and yield farming opportunities.",
+        "featureTabs": {
+          "workspaces": {
+            "title": "NFT Flipper",
+            "description": "Our AI agents monitor Magic Eden and other marketplaces 24/7, identifying undervalued NFTs and executing profitable flips automatically."
+          },
+          "compactMode": {
+            "title": "Airdrop Hunter",
+            "description": "Agents track upcoming airdrops, qualify your wallet for eligibility, and automatically claim tokens when they become available."
+          },
+          "glance": {
+            "title": "Liquid Staking",
+            "description": "Auto-stake idle SOL on Marinade Finance for passive yield while maintaining optimal reserves."
+          },
+          "splitView": {
+            "title": "Kamino Vaults",
+            "description": "Deposit tokens into high-yield Kamino vaults. Agents find the best APY opportunities and rebalance across lending strategies."
+          }
+        }
+      },
+      "community": {
+        "title": ["Why ", "Harvest"],
+        "description": "Harvest combines cutting-edge AI with Solana's speed to deliver autonomous opportunity hunting that's transparent, efficient, and accessible to everyone.",
+        "lists": {
+          "freeAndOpenSource": {
+            "title": "Autonomous & Efficient",
+            "description": "AI agents work 24/7 to hunt NFT flips, airdrops, bounties, and yield opportunities across Solana, so you don't have to."
+          },
+          "simpleYetPowerful": {
+            "title": "Transparent On-Chain",
+            "description": "Every action is recorded on Solana's blockchain. Track opportunities, verify transactions, and maintain full control of your assets."
+          },
+          "privateAndAlwaysUpToDate": {
+            "title": "Multi-Strategy Access",
+            "description": "Access multiple earning strategies across Solana's ecosystem. Our agents continuously find and execute the best opportunities."
+          }
+        },
+        "images": {
+          "community": {
+            "alt": "Harvest Dashboard"
+          }
+        }
+      }
+    },
+
+
+    "about": {
+      "title": "About Harvest",
+      "description": "Harvest is an autonomous yield farming protocol on Solana. Our AI agents continuously monitor DeFi opportunities, optimize strategies, and execute trades to maximize your returns - all while you sleep."
+    },
+
+    "welcome": {
+      "title": ["Welcome to ", "Harvest"]
+    },
+
+    "mods": {
+      "slug": {
+        "back": "Back"
+      }
+    },
+
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "Sorry, the page you are looking for does not exist or has been moved.",
+      "button": "Go Home"
+    }
+  },
+  "layout": {
+    "index": {
+      "title": "Harvest",
+      "description": "Autonomous yield farming on Solana. Deposit assets, let AI agents maximize your returns 24/7."
+    },
+
+    "about": {
+      "title": "About Harvest",
+      "description": "Harvest is an autonomous yield farming protocol on Solana. Our AI agents work 24/7 to maximize your DeFi returns across the best protocols."
+    },
+
+    "welcome": {
+      "title": "Welcome to Harvest",
+      "description": "Get started with autonomous yield farming on Solana."
+    }
+  },
+  "components": {
+    "footer": {
+      "title": "Harvest",
+      "description": "Autonomous yield farming on Solana. Deposit assets, let AI agents optimize returns 24/7.",
+      "followUs": "Follow Us",
+      "aboutUs": "About Us",
+      "getStarted": "Get Started",
+      "documentation": "Documentation",
+      "discord": "Discord",
+      "mods": "Mods",
+      "releaseNotes": "Release Notes",
+      "madeWith": "Made with <span aria-label='love'>❤️</span> by the Harvest Team"
+    },
+    "nav": {
+      "brand": "Harvest",
+      "menu": {
+        "gettingStarted": "Getting Started",
+        "usefulLinks": "Useful Links",
+        "discord": "Discord",
+        "documentation": "Documentation",
+        "documentationDesc": "Learn how to use Harvest with our documentation.",
+        "github": "GitHub",
+        "githubDesc": "Contribute to the development of Harvest on GitHub.",
+        "menu": "Menu",
+        "mods": "Mods",
+        "releaseNotes": "Release Notes",
+        "aboutUs": "About Us"
+      }
+    }
+  }
+}

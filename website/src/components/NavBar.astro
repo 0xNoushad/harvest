@@ -1,0 +1,59 @@
+---
+import MenuIcon from '~/icons/MenuIcon.astro'
+import { getLocale, getPath } from '~/utils/i18n'
+import Logo from './Logo.astro'
+import MobileMenu from './MobileMenu.astro'
+import ThemeSwitch from './ThemeSwitch.astro'
+
+const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
+---
+
+<!-- Desktop Navigation -->
+<nav>
+  <div
+    class="container relative z-20 grid w-full grid-cols-[auto_1fr_auto] items-center gap-6 bg-paper py-3 lg:py-6"
+  >
+    <a class="flex items-baseline gap-2 text-lg font-bold" href={getLocalePath('/')}>
+      <Logo class="mt-1.5 h-8 w-8 object-contain" />
+      <span>Harvest</span>
+    </a>
+    <div class="hidden items-center justify-center gap-6 text-sm sm:text-base lg:flex lg:text-lg">
+      <a href={getLocalePath('/how-it-works')}>How It Works</a>
+      <a href={getLocalePath('/skill.md')}>Agent Skill</a>
+    </div>
+    <div class="flex items-center justify-end gap-4">
+      <button
+        onclick="document.getElementById('mobile-menu-toggle').click()"
+        class="cursor-pointer p-2 text-dark lg:hidden"
+        aria-label="Open menu"
+      >
+        <MenuIcon class="h-6 w-6" />
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Hamburger Menu Content -->
+<MobileMenu />
+
+<style>
+  .navbar-dropdown {
+    @apply absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
+    & .dropdown-item {
+      @apply flex cursor-pointer select-none flex-col gap-2 rounded-lg p-4 transition-colors duration-200;
+
+      &:hover {
+        @apply bg-muted;
+      }
+
+      & .dropdown-title {
+        @apply font-bold;
+      }
+
+      & .dropdown-description {
+        @apply text-sm;
+      }
+    }
+  }
+</style>

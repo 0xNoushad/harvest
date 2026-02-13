@@ -1,0 +1,80 @@
+# Environment variables
+.env
+.env.local
+.env.production
+harvest/.env
+website/.env
+
+# Hackathon credentials
+.hackathon_credentials.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Wallet files
+config/wallet.enc
+config/wallet.key
+config/test_wallets/
+*.enc
+*.key
+
+# Logs
+*.log
+logs/
+harvest/logs/
+
+# Node
+node_modules/
+.npm
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.vercel/
+.astro/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Sensitive data
+config/*_state.json
+config/test_users/
+
+
+# Database files (NEVER commit - contains user data)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+config/harvest.db
+config/*.db
+
+# User data
+config/users/
+config/test_wallets/
+config/monthly_fees.json
+
+# Environment files with secrets
+.env
+.env.*.template
+*.key
+*.pem

@@ -1,0 +1,211 @@
+# Docker Compose for Hetzner Deployment
+# Optimized for single-server or dedicated server setup
+
+version: '3.8'
+
+services:
+  # Redis - Shared cache
+  redis:
+    image: redis:7-alpine
+    container_name: harvest_redis
+    restart: unless-stopped
+    command: >
+      redis-server
+      --appendonly yes
+      --maxmemory 2gb
+      --maxmemory-policy allkeys-lru
+      --save 900 1
+      --save 300 10
+      --save 60 10000
+    volumes:
+      - redis_data:/data
+    networks:
+      - harvest
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # PostgreSQL - Persistent storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: harvest_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: harvest
+      POSTGRES_USER: harvest
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_INITDB_ARGS: "-E UTF8"
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - harvest
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U harvest"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # Performance tuning for Hetzner
+    command: >
+      postgres
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=64MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=4MB
+      -c min_wal_size=1GB
+      -c max_wal_size=4GB
+
+  # Worker Manager - Orchestrates workers
+  manager:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: harvest_manager
+    restart: unless-stopped
+    command: python -m agent.distributed.worker_manager
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=postgresql://harvest:${POSTGRES_PASSWORD}@postgres:5432/harvest
+      - NUM_WORKERS=${NUM_WORKERS:-10}
+      - USERS_PER_WORKER=${USERS_PER_WORKER:-50}
+      - SOLANA_NETWORK=${SOLANA_NETWORK:-mainnet-beta}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - SCAN_INTERVAL=${SCAN_INTERVAL:-600}
+      - PRICE_CACHE_TTL=${PRICE_CACHE_TTL:-180}
+      - STRATEGY_CACHE_TTL=${STRATEGY_CACHE_TTL:-90}
+      - RPC_BATCH_SIZE=${RPC_BATCH_SIZE:-10}
+      - SCAN_STAGGER_WINDOW=${SCAN_STAGGER_WINDOW:-120}
+      - HELIUS_API_KEY_1=${HELIUS_API_KEY_1}
+      - HELIUS_API_KEY_2=${HELIUS_API_KEY_2}
+      - HELIUS_API_KEY_3=${HELIUS_API_KEY_3}
+      - HELIUS_API_KEY_4=${HELIUS_API_KEY_4}
+      - HELIUS_API_KEY_5=${HELIUS_API_KEY_5}
+      - HELIUS_API_KEY_6=${HELIUS_API_KEY_6}
+      - HELIUS_API_KEY_7=${HELIUS_API_KEY_7}
+      - HELIUS_API_KEY_8=${HELIUS_API_KEY_8}
+      - HELIUS_API_KEY_9=${HELIUS_API_KEY_9}
+      - HELIUS_API_KEY_10=${HELIUS_API_KEY_10}
+      - PLATFORM_WALLET=${PLATFORM_WALLET}
+      - MONTHLY_FEE_PERCENTAGE=${MONTHLY_FEE_PERCENTAGE:-0.02}
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - harvest
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+
+  # Monitoring - Prometheus (optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: harvest_prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+    networks:
+      - harvest
+    profiles:
+      - monitoring
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Grafana - Dashboards (optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: harvest_grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - harvest
+    profiles:
+      - monitoring
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Nginx - Reverse proxy (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: harvest_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - nginx_logs:/var/log/nginx
+    networks:
+      - harvest
+    profiles:
+      - web
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  nginx_logs:
+    driver: local
+
+networks:
+  harvest:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

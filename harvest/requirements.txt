@@ -1,0 +1,49 @@
+# LLM
+groq>=0.4.0
+
+# Solana
+solana>=0.30.0
+solders>=0.15.0
+
+# Async & HTTP
+aiohttp>=3.9.0
+httpx>=0.23.0
+requests>=2.31.0
+
+# Notifications
+python-telegram-bot>=21.0
+
+# Web Interface
+flask==3.0.0
+flask-cors==4.0.0
+
+# Database
+sqlalchemy==2.0.0
+
+# Scheduling
+apscheduler==3.10.4
+
+# Utils
+python-dotenv==1.0.0
+pyyaml>=6.0.2
+pydantic>=2.5.0
+loguru==0.7.0
+rich==13.0.0
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
+hypothesis==6.92.0
+
+# From nanobot (useful stuff)
+typer>=0.9.0
+litellm>=1.0.0
+
+# Advanced Cryptography & Security
+cryptography>=42.0.0
+argon2-cffi>=23.1.0
+mnemonic>=0.21
+bip-utils>=2.9.0
+

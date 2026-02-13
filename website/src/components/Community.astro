@@ -1,0 +1,158 @@
+---
+import CheckIcon from '~/icons/CheckIcon.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+import { Iphone } from './Iphone'
+
+const locale = getLocale(Astro)
+
+const {
+  routes: {
+    index: { community },
+  },
+} = getUI(locale)
+---
+
+<section
+  id="community"
+  class="relative flex w-full scroll-mt-20 flex-col items-center gap-6 py-12 text-start md:text-center lg:py-36"
+>
+  <h2 class="mb-2 text-4xl font-bold sm:text-6xl">
+    {
+      community.title.map(title =>
+        title !== '\n' ? (
+          <span style={{ transform: 'translateY(20px)', opacity: '0.001', filter: 'blur(4px)' }}>
+            {title}
+          </span>
+        ) : (
+          <br class="hidden md:block" />
+        )
+      )
+    }
+  </h2>
+  <p
+    class="text-base lg:w-1/2 lg:px-0"
+    style={{ transform: 'translateY(20px)', opacity: '0.001', filter: 'blur(4px)' }}
+  >
+    <span class="opacity-80">{community.description}</span>
+  </p>
+  <div class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center">
+    <div
+      class="community__button flex items-center gap-4"
+      style={{ transform: 'translateY(20px)', opacity: '0.001', filter: 'blur(4px)' }}
+    >
+      <CheckIcon class="size-4" />
+      <span>{community.lists.freeAndOpenSource.title}</span>
+    </div>
+    <div
+      class="community__button flex items-center gap-4"
+      style={{ transform: 'translateY(20px)', opacity: '0.001', filter: 'blur(4px)' }}
+    >
+      <CheckIcon class="size-4" />
+      <span>{community.lists.simpleYetPowerful.title}</span>
+    </div>
+    <div
+      class="community__button flex items-center gap-4"
+      style={{ transform: 'translateY(20px)', opacity: '0.001', filter: 'blur(4px)' }}
+    >
+      <CheckIcon class="size-4" />
+      <span>{community.lists.privateAndAlwaysUpToDate.title}</span>
+    </div>
+  </div>
+  <div
+    class="relative flex w-full max-w-6xl flex-col items-center justify-center gap-12 rounded-2xl p-8 lg:flex-row lg:gap-20 lg:p-16"
+    style={{ transform: 'translateY(20px)', opacity: '0.001', filter: 'blur(4px)', backgroundColor: '#1f1f1f' }}
+  >
+    <!-- Dotted Grid Background -->
+    <div class="pointer-events-none absolute inset-0 -z-20 overflow-hidden rounded-2xl opacity-40">
+      <div class="dot-grid h-full w-full" style="mask-image: radial-gradient(circle at center, white 40%, transparent 70%); -webkit-mask-image: radial-gradient(circle at center, white 40%, transparent 70%);"></div>
+    </div>
+
+    <!-- Blur Overlay for Depth -->
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl">
+      <div class="absolute inset-0 blur-[120px]" style="background: radial-gradient(circle at center, transparent 20%, #1f1f1f 60%);"></div>
+    </div>
+
+    <!-- Before Phone -->
+    <div class="flex flex-col items-center">
+      <div class="relative w-72 lg:w-96">
+        <Iphone client:load draggable={true}>
+          <div class="flex h-full w-full flex-col items-center justify-center bg-paper p-10">
+            <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">Day 1</div>
+            <div class="mb-2 text-8xl font-bold">$10</div>
+            <div class="mb-12 text-sm text-gray-500 dark:text-gray-400">Initial Deposit</div>
+            <div class="space-y-2 text-sm text-gray-400">
+              <div>Manual trading</div>
+              <div>Missing opportunities</div>
+              <div>Limited strategies</div>
+            </div>
+          </div>
+        </Iphone>
+      </div>
+      <div class="mt-6 text-center">
+        <div class="text-xl font-semibold text-gray-600 dark:text-gray-400">Without Harvest</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="flex items-center">
+      <svg class="h-16 w-16 rotate-90 text-coral lg:h-20 lg:w-20 lg:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </div>
+
+    <!-- After Phone -->
+    <div class="flex flex-col items-center">
+      <div class="relative w-72 lg:w-96">
+        <Iphone client:load draggable={true}>
+          <div class="flex h-full w-full flex-col items-center justify-center bg-paper p-10">
+            <div class="mb-4 text-sm text-coral">After 30 Days</div>
+            <div class="mb-2 text-8xl font-bold text-coral">$100</div>
+            <div class="mb-12 text-sm text-gray-500 dark:text-gray-400">10x Growth</div>
+            <div class="space-y-2 text-sm">
+              <div>24/7 AI hunting</div>
+              <div>Auto-claimed airdrops</div>
+              <div>NFT flips executed</div>
+              <div>Yield optimized</div>
+            </div>
+          </div>
+        </Iphone>
+      </div>
+      <div class="mt-6 text-center">
+        <div class="text-xl font-semibold text-coral">With Harvest</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dot-grid {
+    background-image: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+</style>
+
+<script>
+  import { animate, onScroll, stagger } from 'animejs'
+
+  function initAnimations() {
+    const debug = false
+
+    const elements = document.querySelectorAll(
+      '#community h2 span, #community p, #community .community__button, #community > div:last-child'
+    )
+
+    animate(elements, {
+      opacity: { from: 0.001, to: 1 },
+      translateY: { from: 20, to: 0 },
+      filter: { from: 'blur(4px)', to: 'blur(0px)' },
+      duration: 300,
+      delay: stagger(150),
+      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
+      autoplay: onScroll({
+        target: '#community',
+        debug,
+      }),
+    })
+  }
+  initAnimations()
+</script>

@@ -1,0 +1,89 @@
+# Docker Compose for 500-user deployment
+# Run locally or on Railway
+
+version: '3.8'
+
+services:
+  # Redis for distributed caching
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # PostgreSQL for persistent storage
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: harvest
+      POSTGRES_USER: harvest
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U harvest"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Worker Manager (spawns worker processes)
+  manager:
+    build: .
+    command: python -m agent.distributed.worker_manager
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=postgresql://harvest:${POSTGRES_PASSWORD:-changeme}@postgres:5432/harvest
+      - NUM_WORKERS=${NUM_WORKERS:-10}
+      - USERS_PER_WORKER=${USERS_PER_WORKER:-50}
+      - SOLANA_NETWORK=${SOLANA_NETWORK:-mainnet-beta}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - SCAN_INTERVAL=${SCAN_INTERVAL:-300}
+      - HELIUS_API_KEY_1=${HELIUS_API_KEY_1}
+      - HELIUS_API_KEY_2=${HELIUS_API_KEY_2}
+      - HELIUS_API_KEY_3=${HELIUS_API_KEY_3}
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+
+  # Monitoring (optional)
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    restart: unless-stopped
+
+  # Grafana for dashboards (optional)
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  postgres_data:
+  prometheus_data:
+  grafana_data:

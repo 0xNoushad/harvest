@@ -1,0 +1,87 @@
+---
+// Simple wallet connect button that works
+---
+
+<button
+  id="wallet-connect-btn"
+  class="hidden lg:flex items-center gap-2 rounded-xl bg-dark text-paper font-semibold shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] text-sm whitespace-nowrap w-[200px] h-[56px] justify-center"
+>
+  <svg class="h-5 w-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+  </svg>
+  <span id="wallet-btn-text" class="inline-block text-center">Connect Wallet</span>
+</button>
+
+<script>
+  // Simple wallet connect logic
+  const btn = document.getElementById('wallet-connect-btn');
+  const btnText = document.getElementById('wallet-btn-text');
+
+  type SolanaProvider = {
+    isPhantom: boolean;
+    connect: () => Promise<{ publicKey: { toString: () => string } }>;
+    disconnect?: () => Promise<void>;
+  };
+
+  declare global {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+    interface Window {
+      solana?: SolanaProvider;
+    }
+  }
+
+  if (btn && btnText) {
+    btn.addEventListener('click', async () => {
+      // Check if already connected
+      const savedAddress = localStorage.getItem('wallet_address');
+
+      if (savedAddress) {
+        // Disconnect
+        localStorage.removeItem('wallet_address');
+        btnText.textContent = 'Connect Wallet';
+
+        // Disconnect from Phantom if available
+        if (window.solana) {
+          const provider = window.solana;
+          if (provider.isPhantom && provider.disconnect) {
+            await provider.disconnect();
+          }
+        }
+        return;
+      }
+
+      // Connect wallet
+      try {
+        // Check if Phantom is installed
+        if (window.solana) {
+          const provider = window.solana;
+          if (provider.isPhantom) {
+            const resp = await provider.connect();
+            const publicKey = resp.publicKey.toString();
+
+            // Shorten address for display (same length as "Connect Wallet")
+            const shortAddr = `${publicKey.slice(0, 6)}...${publicKey.slice(-6)}`;
+            btnText.textContent = shortAddr;
+
+            // Save to localStorage
+            localStorage.setItem('wallet_address', publicKey);
+          } else {
+            alert('Please install Phantom wallet!');
+          }
+        } else {
+          alert('Please install Phantom wallet from phantom.app');
+        }
+      } catch (err) {
+        console.error('Wallet connection error:', err);
+        alert('Failed to connect wallet. Please try again.');
+      }
+    });
+
+    // Check if already connected
+    const savedAddress = localStorage.getItem('wallet_address');
+    if (savedAddress) {
+      const shortAddr = `${savedAddress.slice(0, 6)}...${savedAddress.slice(-6)}`;
+      btnText.textContent = shortAddr;
+    }
+  }
+</script>

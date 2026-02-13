@@ -1,0 +1,149 @@
+{
+  "trades": [
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:45:25.205015",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:45:25.207748",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:45:25.217825",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:45:25.220489",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:45:25.220711",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:45:25.220972",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:46:13.038457",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:46:13.045441",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:46:13.051665",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:46:13.056805",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:46:13.057564",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:46:13.058216",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:47:29.836284",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:47:29.842752",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:47:29.848665",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    },
+    {
+      "strategy_name": "buy_strategy",
+      "timestamp": "2026-02-12T19:47:29.853686",
+      "action": "buy",
+      "amount": 0.5,
+      "profit": 0.0,
+      "transaction_hash": "buy_tx_abc123"
+    },
+    {
+      "strategy_name": "sell_strategy",
+      "timestamp": "2026-02-12T19:47:29.854522",
+      "action": "sell",
+      "amount": 100.0,
+      "profit": 0.05,
+      "transaction_hash": "sell_tx_xyz789"
+    },
+    {
+      "strategy_name": "swap_strategy",
+      "timestamp": "2026-02-12T19:47:29.855278",
+      "action": "swap",
+      "amount": 1.0,
+      "profit": 0.03,
+      "transaction_hash": "swap_tx_def456"
+    }
+  ],
+  "last_updated": "2026-02-12T19:47:29.855296"
+}

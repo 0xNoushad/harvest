@@ -1,0 +1,28 @@
+---
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+
+const { layout } = getUI(locale)
+---
+
+<Layout title={layout.about.title} description={layout.about.description}>
+  <main class="container flex min-h-screen w-full flex-col gap-24 py-24">
+    <div class="flex w-full flex-col gap-6">
+      <Description class="text-6xl font-bold leading-none">About Harvest</Description>
+      <Description class="max-w-4xl">
+        Harvest is an autonomous yield farming protocol on Solana. Our AI agents continuously monitor
+        DeFi opportunities, optimize strategies, and execute trades to maximize your returns - all while
+        you sleep.
+      </Description>
+      <Description class="max-w-4xl">
+        Simply deposit SOL or USDC, and let our agents handle the rest. They analyze market conditions,
+        identify the best yield opportunities across Solana DeFi protocols, and automatically rebalance
+        your portfolio to capture optimal returns. No manual intervention required.
+      </Description>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,51 @@
+---
+// Wrapper component to use React wallet connect in Astro
+---
+
+<div id="wallet-connect-root" class="wallet-connect-container"></div>
+
+<script>
+  import { createRoot } from 'react-dom/client';
+  import { createElement } from 'react';
+  import WalletConnect from './WalletConnect';
+
+  const container = document.getElementById('wallet-connect-root');
+  if (container) {
+    const root = createRoot(container);
+
+    const handleConnect = (publicKey: string) => {
+      console.log('Wallet connected:', publicKey);
+
+      // Save to localStorage
+      localStorage.setItem('wallet_address', publicKey);
+
+      // Send to backend
+      fetch('/api/wallet/connect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          wallet_address: publicKey,
+          telegram_chat_id: localStorage.getItem('telegram_chat_id') || 'web_user',
+          wallet_type: 'web'
+        })
+      }).then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            // Redirect to dashboard
+            window.location.href = '/dashboard';
+          }
+        })
+        .catch(err => console.error('Failed to save wallet:', err));
+    };
+
+    root.render(createElement(WalletConnect, { onConnect: handleConnect }));
+  }
+</script>
+
+<style>
+  .wallet-connect-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
